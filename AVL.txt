@@ -1,0 +1,19 @@
+int avl(node *temp,int *height)
+{
+    int lh=0,rh=0,l=1,r=1;
+    if(temp==NULL)
+    {
+        *height=-1;
+        return 1;
+    }
+    l=avl(temp->left,&lh);
+    r=avl(temp->right,&rh);
+    if(temp!=root)
+        *height=((lh>rh)?lh:rh)+1;
+    if(lh-rh>1||rh-lh>1)
+        return 0;
+    return l&&r;
+
+  
+
+}
